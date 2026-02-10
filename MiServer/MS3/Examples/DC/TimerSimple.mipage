@@ -1,0 +1,28 @@
+﻿:Class TimerSimple : MiPageSample
+⍝ Control:: _DC.Timer
+⍝ Description:: Signal timed events to the server
+ :field public _Sessioned←1  ⍝ this will keep globals in the class!
+ :field public COUNTER←0
+ :field public LIMIT←10
+ :field private ti←''
+
+    ∇ Compose
+      :Access public 
+      Add _.h4'Timer Sample - will append timestamp every half-second (10 times)'
+      ti←Add _.Timer 500
+      'output'Add _.div
+      On'tick' 'cb'
+    ∇
+
+    ∇ r←cb
+      :Access public
+      COUNTER+←1
+      :if COUNTER≤LIMIT
+      r←'#output'Append'<br/>',(¯2↑⍕COUNTER),': Now the time is: ',⍕3↓⎕TS
+      :else 
+      r←Execute ti.Stop
+      r,←'#output'Append'<br/>Timer stopped'
+      :endif
+    ∇
+
+:EndClass

@@ -1,0 +1,8 @@
+<Server>
+    <Name>ZIP Postal Search</Name>
+    <Port>8093</Port>
+    <ClassName>MiServer</ClassName>
+    <RESTful>1</RESTful>
+    <CreateSession>0</CreateSession>
+</Server>
+

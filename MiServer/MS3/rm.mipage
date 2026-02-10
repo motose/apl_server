@@ -1,0 +1,35 @@
+:Class rm : MiPage
+
+∇ Compose
+  :Access Public
+  Add _.h2 'ファイル削除テスト'
+  
+  ⍝ 現在の状態を表示する領域
+  'status' Add _.div (CheckStatus '')
+  
+  ⍝ 削除実行ボタン
+  btn ← 'run' Add _.Button 'CSVファイルを削除する'
+  btn.On 'click' 'DoDelete'
+∇
+
+∇ r←DoDelete;res
+  :Access Public
+  ⍝ rmコマンドを実行 (2>&1 でエラーメッセージも取得)
+  res ← ⎕SH 'rm -v /var/lib/mysql-files/coco/zipcode.csv 2>&1'
+  
+  ⍝ 削除後の状態で画面を更新
+  r ← '#status' Replace (CheckStatus res)
+∇
+
+∇ txt←CheckStatus msg;path;exists
+  path ← '/var/lib/mysql-files/coco/zipcode.csv'
+  exists ← ⎕NEXISTS path
+  
+  txt ← '<b>対象ファイル:</b> ', path, '<br>'
+  txt ,← '<b>現在の状態:</b> ', (exists ⌽ '❌ 存在しません' '✅ 存在します'), '<br>'
+  :If 0≠⍴msg
+      txt ,← '<br><b>コマンド結果:</b> <pre>', msg, '</pre>'
+  :EndIf
+∇
+
+:EndClass

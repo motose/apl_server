@@ -1,0 +1,11 @@
+.git
+.gitignore
+.dockerignore
+GH-Release.sh
+version
+Jenkinsfile
+githubComment.sh
+Dockerfile
+docker-compose.yml
+rancher-compose.yml
+CI

@@ -1,0 +1,10 @@
+<Server>
+    <Name>MS3 Sample Site</Name>
+    <Port>8093</Port>
+    <Root>../wwwroot</Root>
+    <APLRoot>../apl</APLRoot>
+    <ClassName>MS3Server</ClassName>
+    <RESTful>1</RESTful>
+    <AllowedHTTPCommands>get,put,delete,post</AllowedHTTPCommands>
+    <CreateSession>1</CreateSession>
+</Server>

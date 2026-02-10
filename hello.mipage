@@ -1,0 +1,20 @@
+:Class hello : MiPage
+    :Field Public Shared ConnString ← 'DSN=my_zipcode_db;UID=coco;PWD=YourPassword'
+
+    ∇ Render
+      :Access Public
+      Add _.h1 'Hello from Dyalog APL on SV1!'
+      
+      ⍝ MySQL 接続テスト
+      :Trap 0
+          ⍝ SQAPL（DyalogのSQLライブラリ）をロードして接続試行
+          'SQL' ⎕CY 'sqapl'
+          res ← ⎕SQL.Connect ConnString
+          Add _.p 'MySQL Connection: SUCCESS! (Result Code: ', (⍕res), ')'
+      :Else
+          Add _.p 'MySQL Connection: FAILED. Check ODBC settings.'
+      :EndTrap
+      
+      Add _.p 'Current Time: ', ⍕⎕TS
+    ∇
+:EndClass

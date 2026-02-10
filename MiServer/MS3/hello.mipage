@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Hello, World</h1>
+
+<p>APL says:</p>
+
+<?apl
+    'Hello from MiServer v3'
+?>
+
+</body>
+</html>
+

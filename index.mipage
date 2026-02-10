@@ -1,0 +1,19 @@
+:Class index : MiPage
+    ∇ Render
+      :Access Public
+      Add _.h1 'APL ZipCode Server (SV1-14)'
+      Add _.p 'Hello, World! This is the 14th language.'
+      
+      ⍝ DB接続とデータ表示を一気に試みる
+      :Trap 0
+          'SQA' ⎕CY 'sqapl'
+          conn ← SQA.Connect 'DSN=my_zipcode_db'
+          ⍝ データを取得して HTML テーブルとして追加
+          res ← SQA.Do 'SELECT * FROM zipcode LIMIT 10'
+          ⍝ MiServer のユーティリティでテーブル化
+          Add _.Table (⊃res[4]) 
+      :Else
+          Add 'DB Connection or Query failed.'
+      :EndTrap
+    ∇
+:EndClass

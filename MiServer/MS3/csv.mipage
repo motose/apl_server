@@ -1,0 +1,38 @@
+:Class csv : MiPage
+
+∇ Compose;file;data;i;td;html
+  :Access Public
+  Add _.h2 '住所・郵便番号検索'
+  'addr' Add _.EditField (⊂'placeholder' '住所')
+  'zip' Add _.EditField (⊂'placeholder' '郵便番号')
+  'out' Add _.div
+  (Add _.Button '住所検索').On 'click' 'ReloadCSV'
+  (Add _.Button '番号検索').On 'click' 'ReloadCSV'
+
+  file ← '/var/lib/mysql-files/coco/zipcode.csv'
+  :If ⎕NEXISTS file
+      data ← ⎕CSV file
+      html ← '<table border="1">'
+      :For i :In ⍳⍴data[;1]
+          html,←'<tr>'
+          :For td :In data[i;] ⋄ html,←'<td>',td,'</td>' ⋄ :EndFor
+          html,←'</tr>'
+      :EndFor
+      '#out' Replace html,'</table>'
+  :EndIf
+∇
+
+∇ r←ReloadCSV;file;data;i;td;html
+  :Access Public
+  file ← '/var/lib/mysql-files/coco/zipcode.csv'
+  data ← ⎕CSV file
+  html ← '<table border="1">'
+  :For i :In ⍳⍴data[;1]
+      html,←'<tr>'
+      :For td :In data[i;] ⋄ html,←'<td>',td,'</td>' ⋄ :EndFor
+      html,←'</tr>'
+  :EndFor
+  r ← '#out' Replace html,'</table>'
+∇
+
+:EndClass

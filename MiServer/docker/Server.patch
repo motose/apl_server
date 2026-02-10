@@ -1,0 +1,14 @@
+9c9
+<     <Production>0</Production>           <!-- 1-running in production mode, 0-development mode (enable debugging framework) --> 
+---
+>     <Production>1</Production>           <!-- 1-running in production mode, 0-development mode (enable debugging framework) --> 
+11c11
+<     <CloseOnCrash>0</CloseOnCrash>       <!-- Set to 1 to force []OFF on an unhandled server error -->
+---
+>     <CloseOnCrash>1</CloseOnCrash>       <!-- Set to 1 to force []OFF on an unhandled server error -->
+16d15
+<     <Ports>8080-8090</Ports>                              <!-- List of ports that we can listen on (when running multiple MiServers) -->
+42c41
+<     <TrapErrors>0</TrapErrors>    <!-- Valid: 0=Crash, 1=Trap and Log errors -->
+---
+>     <TrapErrors>1</TrapErrors>    <!-- Valid: 0=Crash, 1=Trap and Log errors -->

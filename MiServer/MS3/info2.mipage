@@ -1,0 +1,8 @@
+:Class info : MiPage
+    ∇ Compose
+      :Access Public
+      Add _.h1 'APL System Success!'
+      Add _.p 'Server Time: ', ⍕⎕TS
+      Add _.p 'Status: Connected through Reverse Proxy'
+    ∇
+:EndClass

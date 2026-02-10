@@ -1,0 +1,9 @@
+:Class index : MiPage
+    ∇ Compose
+      :Access Public
+      Add _.h1 'ZIP Service'
+      Add _.p 'Postal code lookup system'
+      Add _.a 'Search ZIP' ('href' 'search')
+    ∇
+:EndClass
+

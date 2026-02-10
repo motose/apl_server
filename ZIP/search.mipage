@@ -1,0 +1,20 @@
+:Class search : MiPage
+    ∇ Compose
+      :Access Public
+
+      zip ← Req.Query.zip
+
+      Add _.h1 'ZIP Search'
+
+      :If 0=⎕NC 'zip'
+          Add _.form (
+            _.input ('name' 'zip' 'placeholder' '123-4567')
+            _.input ('type' 'submit' 'value' 'Search')
+          )
+      :Else
+          Add _.p 'ZIP: ', zip
+          Add _.p 'Result: ', ZipDB.Lookup zip
+      :EndIf
+    ∇
+:EndClass
+
