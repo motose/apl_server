@@ -14,7 +14,7 @@ Dyalog MiServer 3フレームワークを使い、.mipageにプログラムを�
 コンパイルは無い。
 
 ### 公開
-本サービスはhttp://127.0.0.1:8093/で稼働しているが、OpenRestyでSSL化してサブドメインにリバースプロキシで接続しhttps://apl.etech21.net/として公開している。
+本サービスはhttp://127.0.0.1:8093/で稼働しているが、OpenRestyでSSL化してサブドメインにリバースプロキシで接続しhttps://apl.etech21.net/dbとして公開している。
 systemdサービスにより常駐化している。
 
 
